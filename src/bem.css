@@ -1,0 +1,33 @@
+/* Test BEM */
+@component-namespace mine {
+  @component SearchForm {
+    padding: 0;
+    margin: 0;
+
+    /* Typically, place modifiers above descendents */
+    @modifier advanced {
+      padding: 1rem;
+    }
+
+    /* Nest descendent under component */
+    @descendent textField {
+      border: 1px solid #ccc;
+
+      /* This creates a state for the textField descendant */
+      @when invalid {
+        border: 1px solid red;
+      }
+    }
+  }
+
+  @utility clearFix {
+    &:before, &:after {
+      content: "";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+  }
+}
